@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "3d9b94aa-f107-4738-803a-067bb832fcfe",
+		"name": "ninjaplus-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticacao",
+			"item": [
+				{
+					"name": "Autenticacao",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"leo@ninjaplus.com\",\n  \"password\": \"pwd123\"\n}"
+						},
+						"url": {
+							"raw": "http://ninjaplus-api:3000/auth",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Cadastrar usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"full_name\": \"Leonardo\",\n  \"email\": \"leo@ninjaplus.com\",\n  \"password\": \"pwd123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ninjaplus-api:3000/user",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						},
+						"description": "Cadastrar usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://ninjaplus-api:3000/user/1",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filme",
+			"item": [
+				{
+					"name": "Alterar filme cadastrado",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Vingadores Ultimato (Endgame)\",\n    \"year\": 2019,\n    \"cast\": [\"Robert Downey Jr\", \"Chris Evans\", \"Brie Larson\", \"Scarlett Johansson\"],\n    \"release_date\": \"2019-04-12\",\n    \"status\": \"Disponivel\",\n    \"cover\": \"ultimato.jpg\",\n    \"overview\": \"Após Thanos eliminar metade do universo, os vingadores terão que resolver esta treta.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ninjaplus-api:3000/movies/43",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar filme por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ninjaplus-api:3000/movies/43",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar todos os filmes cadastrados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://ninjaplus-api:3000/movies",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incluir Filmes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Iron Man\",\n    \"year\": 2008,\n    \"cast\": [\"Robert Downey Jr\", \"Jon Favreau\", \"Gwyneth Paltrow\"],\n    \"release_date\": \"2008-01-04\",\n    \"status\": \"Active\",\n    \"cover\": \"ironman.jpg\",\n    \"overview\": \"Tony Stark (Robert Downey Jr.) é um industrial bilionário, que também é um brilhante inventor. Ao ser sequestrado ele é obrigado por terroristas a construir uma arma devastadora.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ninjaplus-api:3000/movies",
+							"protocol": "http",
+							"host": [
+								"ninjaplus-api"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
+
